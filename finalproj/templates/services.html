@@ -1,0 +1,17 @@
+<html>
+  <header>
+  </header>
+  <body>
+    {% include "header.html" %}
+    <h1>Services</h1>
+
+    <table>
+        <tr><th>Code</th><th>Name</th><th>Price</th></tr>
+        {% for service in services %}
+          <tr><td><a href="servicedetails?code={{service['code']}}">{{service["code"]}}</a></td><td>{{service["name"]}}</td><td>{{service["price"]}}</td></tr>
+        {% endfor %}
+    </table>
+    {% include "footer.html" %}
+
+  </body>
+</html>

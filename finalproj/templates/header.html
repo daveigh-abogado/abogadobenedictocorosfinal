@@ -1,0 +1,26 @@
+<html>
+  <header>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <style>
+      .footer {
+        font-size:10px;
+      }
+    </style>
+
+  </header>
+  <body>
+    <a href='/'>Home</a> | 
+    <a href='/services'>Services</a> | 
+    {% if session["user"] is defined %}
+    <a href='/viewappointments'>View Appointments</a> | 
+      {% if session["user"]["type"]== "patient" %} <a href='/makeappt'>Make an Appointment</a> | 
+      {% else %} <a href='/editslots'>Edit Available Timeslots</a> | 
+      {% endif %}
+
+      <a href='/logout'>Logout</a>
+      Welcome, {{ session["user"]["first_name"] }}. 
+    {% else %}
+      <a href='/login'>Login</a>
+    {% endif %}
+</body>
+</html>

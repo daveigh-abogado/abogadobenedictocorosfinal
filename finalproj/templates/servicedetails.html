@@ -1,0 +1,18 @@
+<html>
+  <header>
+  </header>
+  <body>
+        {% include "header.html" %}
+        <h1>Services Details</h1>
+        <table>
+           <tr><td>Code</td><td>{{ code }}</td></tr>
+            <tr><td>Description</td><td>{{ service["name"] }}</td></tr>
+            <tr><td>Price</td><td><i>{{ service["price"] }}</i></td></tr>
+            <!--{% if session["user"] is defined %}
+              <tr><td colspan=2><a href="/addtocart?code={{ code }}">Add to Cart</a></td></tr>
+            {% endif %}-->
+          </table>
+        <a href="/services">Back</a>
+        {% include "footer.html" %}
+  </body>
+</html>

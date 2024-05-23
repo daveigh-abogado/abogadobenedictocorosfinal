@@ -1,0 +1,14 @@
+{% include "header.html" %}
+        <h1>Appointments</h1>
+        {% if appointments %}
+            {% for a in appointments %}
+            <table>
+                <tr><td>{{ a["appt_made"] }}</td></tr>
+                <tr><td>{{a["appt_day"]}}: {{ a["appt_time"] }}</td></tr>
+            </table>
+            <br>
+            {% endfor %}
+        {% else %}
+            <div>No appointments have been made yet.</div>
+        {% endif %}
+{% include "footer.html" %}

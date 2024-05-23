@@ -1,0 +1,14 @@
+{% include "header.html" %}
+<h1>Choose a Time:</h1>
+    
+    <form action="/reserve?day={{day}}" method="POST">
+        <select name="time" required>
+            {% for slot in actual_slots %}
+            <option value="{{slot}}">{{ slot }}</option>
+            {% endfor %}
+        </select>
+        <input type="hidden" name="service" value="{{ service }}">
+        <input type="submit" value="Reserve">
+    </form>
+
+{% include "footer.html" %}
