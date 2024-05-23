@@ -1,0 +1,29 @@
+{% include "header.html" %}
+        <h1>Past Orders</h1>
+        {% if order_list %}
+            {% for order in order_list %}
+                {{ order["orderdate"] }}
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                    </tr>
+                    {% for o in order["details"] %}
+                    <tr>
+                        <td>{{ o["name"] }}</td>
+                        <td>{{ o["qty"] }}</td>
+                        <td>{{ o["subtotal"] }}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="2"><b>Total</b></td>
+                        <td><b>{{ order["details"]|sum(attribute="subtotal") }}</b></td>
+                    </tr>
+                </table>
+                <br><br>
+            {% endfor %}
+        {% else %}
+            <div>No orders have been made yet.</div>
+        {% endif %}
+{% include "footer.html" %}
